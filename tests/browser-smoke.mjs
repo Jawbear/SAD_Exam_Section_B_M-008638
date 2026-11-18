@@ -16,6 +16,11 @@ assert.ok(browserPath, 'Set BROWSER_PATH to a Chrome, Chromium, or Edge executab
 const [staff, scholar] = demoAccounts(2);
 await mkdir(resolve('.cache'), { recursive: true });
 const profile = await mkdtemp(resolve('.cache/scholarship-live-browser-'));
+await mkdir(resolve(profile, 'Default'));
+await writeFile(resolve(profile, 'Default', 'Preferences'), JSON.stringify({
+  credentials_enable_service: false,
+  profile: { password_manager_enabled: false, password_manager_leak_detection: false },
+}));
 const chrome = spawn(browserPath, [
   '--headless=new', '--disable-gpu', '--no-first-run', '--disable-background-networking',
   `--user-data-dir=${profile}`, '--remote-debugging-port=0', 'about:blank',
