@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#080D0A">
+    <title>Scholarship Office | Student Scholarship Monitoring</title>
+    <link rel="stylesheet" href="./src/css/app.css">
+    <script type="module" src="./src/js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div id="app-shell">
+      <aside id="site-sidebar" aria-label="Scholarship Office" hidden></aside>
+      <div class="app-workspace">
+        <header id="site-header" class="topbar" hidden></header>
+        <main id="main-content" class="container" tabindex="-1">
+          <p class="loading" role="status">Loading Scholarship Office…</p>
+          <noscript><p>Enable JavaScript to use this application.</p></noscript>
+        </main>
+      </div>
+    </div>
+    <dialog id="mobile-navigation" class="navigation-drawer" aria-label="Main navigation"></dialog>
+    <dialog id="action-dialog" class="action-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+      <form method="dialog">
+        <h2 id="dialog-title"></h2>
+        <p id="dialog-description"></p>
+        <div class="actions">
+          <button value="cancel" class="button button--secondary" autofocus>Cancel</button>
+          <button value="confirm" class="button button--primary" id="dialog-confirm">Confirm</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "scholarship-compliance-section-b",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12" },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/unit/*.test.js",
+    "test:db:embedded": "node tests/run-embedded.mjs",
+    "test:auth": "node --env-file=.env.test.local tests/auth-smoke.mjs",
+    "test:browser": "node --env-file=.env.test.local tests/browser-smoke.mjs",
+    "provision:demo": "node --env-file=.env.test.local scripts/provision-demo.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.78.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.3.14",
+    "vite": "7.2.2"
+  }
+}
