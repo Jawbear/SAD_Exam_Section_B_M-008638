@@ -48,4 +48,26 @@ select id, '20000000-0000-4000-8000-000000000000', 1, 'pending', 'verified',
   'Reviewed fictional grade reference.', submitted_at + interval '1 hour'
 from inserted where verification_status = 'verified';
 
+-- Additional demo scholars begin their first semester awaiting a grade submission.
+with roster(student_id, full_name, program_name) as (values
+  ('DEMO-07', 'Lina Mercado', 'Excellence Scholar'),
+  ('DEMO-08', 'Nico Salazar', 'Access Scholar'),
+  ('DEMO-09', 'Mira Navarro', 'Excellence Scholar'),
+  ('DEMO-10', 'Paolo Dizon', 'Access Scholar'),
+  ('DEMO-11', 'Tala Soriano', 'Excellence Scholar')
+), registered as (
+  insert into public.user_profiles (student_id, full_name, email, role)
+  select student_id, full_name, lower(student_id) || '@scholarship.example', 'scholar'
+  from roster
+  on conflict (student_id) do nothing
+  returning id, student_id
+)
+insert into public.scholar_assignments (
+  scholar_id, program_id, effective_academic_year, effective_semester, assigned_by
+)
+select registered.id, program.id, '2026-2027', 1, '20000000-0000-4000-8000-000000000000'
+from registered
+join roster using (student_id)
+join public.scholarship_programs program using (program_name);
+
 commit;
