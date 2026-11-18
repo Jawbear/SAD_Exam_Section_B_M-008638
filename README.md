@@ -23,8 +23,8 @@ Use Node.js 22.12 or later. To run with local Auth and a local database, install
 
 | Role | Demo email | Password setting |
 | --- | --- | --- |
-| Scholarship Staff | `staff@scholarship.example` | `TEST_STAFF_PASSWORD` |
-| Scholar B01 | `b01@scholarship.example` | `TEST_SCHOLAR_A_PASSWORD` |
+| Scholarship Staff | `staff@adssu.edu.ph` | `TEST_STAFF_PASSWORD` |
+| Scholar B01 | `b01@adssu.edu.ph` | `TEST_SCHOLAR_A_PASSWORD` |
 | Scholar B02 | `b02@scholarship.example` | `TEST_SCHOLAR_B_PASSWORD` |
 
 Staff can review the seeded submissions and register scholars. Registered scholars can sign in once an Auth account with their confirmed email exists. The app links the scholar profile on first sign-in.

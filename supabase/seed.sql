@@ -2,8 +2,8 @@
 begin;
 
 insert into public.user_profiles (id, full_name, student_id, email, role) values
-  ('20000000-0000-4000-8000-000000000000', 'Jordan Reyes (Demo Staff)', null, 'staff@scholarship.example', 'staff'),
-  ('20000000-0000-4000-8000-000000000001', 'Avery Cruz', 'B01', 'b01@scholarship.example', 'scholar'),
+  ('20000000-0000-4000-8000-000000000000', 'Jordan Reyes (Demo Staff)', null, 'staff@adssu.edu.ph', 'staff'),
+  ('20000000-0000-4000-8000-000000000001', 'Avery Cruz', 'B01', 'b01@adssu.edu.ph', 'scholar'),
   ('20000000-0000-4000-8000-000000000002', 'Blair Santos', 'B02', 'b02@scholarship.example', 'scholar'),
   ('20000000-0000-4000-8000-000000000003', 'Casey Mendoza', 'B03', 'b03@scholarship.example', 'scholar'),
   ('20000000-0000-4000-8000-000000000004', 'Drew Bautista', 'B04', 'b04@scholarship.example', 'scholar'),

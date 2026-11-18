@@ -38,7 +38,7 @@ before(async () => {
   await db.exec(seed);
 
   for (const [number, email] of [
-    [0, 'staff@scholarship.example'], [1, 'b01@scholarship.example'], [2, 'b02@scholarship.example'],
+    [0, 'staff@adssu.edu.ph'], [1, 'b01@adssu.edu.ph'], [2, 'b02@scholarship.example'],
     [3, 'b03@scholarship.example'], [6, 'b06@scholarship.example'],
   ]) {
     await db.query('insert into auth.users (id, email, email_confirmed_at) values ($1, $2, $3)', [

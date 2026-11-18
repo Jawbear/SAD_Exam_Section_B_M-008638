@@ -13,7 +13,7 @@ const browserPath = process.env.BROWSER_PATH || [
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '/usr/bin/google-chrome', '/usr/bin/chromium',
 ].find(existsSync);
 assert.ok(browserPath, 'Set BROWSER_PATH to a Chrome, Chromium, or Edge executable.');
-const [staff, scholar] = demoAccounts();
+const [staff, scholar] = demoAccounts(2);
 await mkdir(resolve('.cache'), { recursive: true });
 const profile = await mkdtemp(resolve('.cache/scholarship-live-browser-'));
 const chrome = spawn(browserPath, [
@@ -256,6 +256,7 @@ try {
   await screenshot('staff-tablet');
   await visit('staff-profile', 'Profile');
   assert.match(await text('main'), /Scholarship Staff/);
+  assert.ok((await text('main')).includes(staff.email));
   console.log('Staff audit passed for desktop and tablet navigation, filters, a persisted review, forms, and confirmation handling.');
   await signOut();
 
@@ -302,6 +303,7 @@ try {
   await heading('Welcome, Avery Cruz');
   await visit('scholar-profile', 'Profile');
   assert.match(await text('main'), /B01/);
+  assert.ok((await text('main')).includes(scholar.email));
   console.log('Scholar audit passed for mobile navigation, review status, inline validation, and keyboard dismissal.');
   await signOut();
   assert.deepEqual(browserErrors, [], 'Unexpected errors were reported by Chrome.');

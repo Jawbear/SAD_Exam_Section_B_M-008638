@@ -207,7 +207,7 @@ async function restoreSession(session, force = false) {
       root.querySelector('#retry-account').addEventListener('click', () => restoreSession(session, true));
       return;
     }
-    profile = account;
+    profile = { ...account, email: session.user.email ?? account.email };
     await restoreRoute();
   } catch (error) {
     if (authVersion !== token) return;

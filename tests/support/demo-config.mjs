@@ -7,17 +7,17 @@ function required(name) {
   return value;
 }
 
-export function demoAccounts() {
+export function demoAccounts(count = 3) {
   return [
-    ['0', 'staff', 'staff', 'TEST_STAFF_PASSWORD'],
-    ['1', 'b01', 'scholar', 'TEST_SCHOLAR_A_PASSWORD'],
-    ['2', 'b02', 'scholar', 'TEST_SCHOLAR_B_PASSWORD'],
-  ].map(([number, login, role, variable]) => {
+    ['0', 'staff@adssu.edu.ph', 'staff', 'TEST_STAFF_PASSWORD'],
+    ['1', 'b01@adssu.edu.ph', 'scholar', 'TEST_SCHOLAR_A_PASSWORD'],
+    ['2', 'b02@scholarship.example', 'scholar', 'TEST_SCHOLAR_B_PASSWORD'],
+  ].slice(0, count).map(([number, email, role, variable]) => {
     const password = required(variable);
     if (password.length < 12) throw new Error(`${variable} must contain at least 12 characters.`);
     return {
       id: `20000000-0000-4000-8000-00000000000${number}`,
-      email: `${login}@scholarship.example`, role, password,
+      email, role, password,
     };
   });
 }
