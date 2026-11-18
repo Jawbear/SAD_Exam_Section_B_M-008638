@@ -31,6 +31,10 @@ Staff can review the seeded submissions and register scholars. Registered schola
 
 To use a hosted Supabase project, apply `supabase/migrations/*.sql` in filename order and run `supabase/seed.sql` on a demo database. Set the same environment variables to the hosted project URL and keys. Use the project URL without `/rest/v1`. The browser needs `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY`. The backend demo script also needs `SUPABASE_ADMIN_KEY` in `.env.test.local`.
 
+## GitHub Pages
+
+In repository Settings → Secrets and variables → Actions → Variables, set `VITE_SUPABASE_URL` to the hosted project URL and `VITE_SUPABASE_PUBLISHABLE_KEY` to its public browser key. In Settings → Pages, choose **GitHub Actions** as the source. Pushing to `main` runs the **Publish Scholarship Office** workflow, which tests the code, builds it with Vite and deploys `dist/`. To republish after changing a variable, open that workflow under Actions and select **Run workflow**.
+
 ## Verify
 
 - `npm test` checks validation, assignment dates, roster filtering, the advisory policy comparison, and browser key handling.
