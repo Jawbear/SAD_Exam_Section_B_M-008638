@@ -294,7 +294,10 @@ try {
   await click('#action-dialog button[value=cancel]');
   await waitFor(() => exists('#academic-form button[type=submit]:not([disabled])'), 'the restored submit action');
   await click('#menu-toggle');
-  await cdp('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+  await waitFor(() => exists('#mobile-navigation[open]'), 'the mobile navigation drawer');
+  const escapeKey = { key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 };
+  await cdp('Input.dispatchKeyEvent', { type: 'rawKeyDown', ...escapeKey });
+  await cdp('Input.dispatchKeyEvent', { type: 'keyUp', ...escapeKey });
   await waitFor(async () => !await exists('#mobile-navigation[open]'), 'the drawer to close with Escape');
   await click('#menu-toggle');
   await click('#mobile-navigation [data-route=scholar-home]');

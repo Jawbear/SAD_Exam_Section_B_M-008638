@@ -18,7 +18,7 @@ Use Node.js 22.12 or later. To run with local Auth and a local database, install
 
 1. Run `npm ci` and start Supabase with `supabase start`. The project configuration applies the migrations and seeds the demo roster on a fresh local database.
 2. Copy `.env.example` to `.env.local`. Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` to the API URL and publishable or `anon` key for that Supabase instance.
-3. Copy `.env.test.example` to `.env.test.local`. Set `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_ADMIN_KEY`, and passwords of at least 12 characters for the demo accounts. Keep the secret or `service_role` key in `.env.test.local`.
+3. Copy `.env.test.example` to `.env.test.local`. Set `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_ADMIN_KEY`, and the demo accounts’ passwords. For new accounts, local Supabase requires at least 12 characters. For an existing hosted account, use its current password. Keep the secret or `service_role` key in `.env.test.local`.
 4. Run `npm run provision:demo` and `npm run dev`. Open `http://127.0.0.1:5173`.
 
 | Role | Demo email | Password setting |

@@ -357,6 +357,14 @@ document.addEventListener('click', async (event) => {
   if (isAllowed(route, id) && await canLeave()) await go(route, { id, section, filter });
 });
 
+drawer.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && drawer.open) {
+    event.preventDefault();
+    drawer.close();
+    header.querySelector('#menu-toggle')?.focus();
+  }
+});
+
 header.addEventListener('keydown', (event) => {
   const account = event.target.closest('.account-menu[open]');
   if (event.key !== 'Escape' || !account) return;

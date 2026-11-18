@@ -13,11 +13,9 @@ export function demoAccounts(count = 3) {
     ['1', 'b01@adssu.edu.ph', 'scholar', 'TEST_SCHOLAR_A_PASSWORD'],
     ['2', 'b02@scholarship.example', 'scholar', 'TEST_SCHOLAR_B_PASSWORD'],
   ].slice(0, count).map(([number, email, role, variable]) => {
-    const password = required(variable);
-    if (password.length < 12) throw new Error(`${variable} must contain at least 12 characters.`);
     return {
       id: `20000000-0000-4000-8000-00000000000${number}`,
-      email, role, password,
+      email, role, password: required(variable),
     };
   });
 }
